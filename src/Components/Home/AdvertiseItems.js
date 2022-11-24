@@ -3,30 +3,35 @@ import React from 'react'
 function AdvertiseItems() {
     const products=[
         {
+            "_id" : "dwe23",
             "name" : "Wooden chair",
             "des" : " Made with segun wood . used for 1years..still looks like new",
             "img" : "https://i.ibb.co/nRjRT06/chair.png",
             "price" : "120"
         },
         {
+            "_id" : "dwwqe23",
             "name" : "Book Self",
             "des" : " Wood made furniture. Small but beautifull. You can use it beside of bed",
             "img" : "https://i.ibb.co/SN1SMvF/bookself.png",
             "price" : "220"
         },
         {
+            "_id" : "dwe2123",
             "name" : "Sofa set",
             "des" : "Made of Malaysian wood and Austrilian form. very comfortable and light weight.",
             "img" : "https://i.ibb.co/m90HLtQ/sofa.png",
             "price" : "360"
         },
         {
+            "_id" : "dwe23ww232",
             "name" : "Tea table",
             "des" : "Having a beautifull modern chair with a little chair. Fit to anywhere",
             "img" : "https://i.ibb.co/NnSG48N/kara-eads-buhmhprfo3g-unsplash-removebg-preview.png",
             "price" : "250"
         },
         {
+            "_id" : "dwe2er23",
             "name" : "Study table-chair",
             "des" : "A beautiful and smart table along with the chair. all are made of goof wood",
             "img" : "https://i.ibb.co/82kRjDd/study-table.png",
@@ -41,7 +46,7 @@ function AdvertiseItems() {
         <div className='mt-12 flex flex-wrap gap-10 justify-center'>
         {
             products.map(product =>
-                <div className="w-[310px] bg-slate-200 flex flex-col justify-center items-center rounded-[10px] shadow-md">
+                <div key={product._id} className="w-[310px] bg-slate-200 flex flex-col justify-center items-center rounded-[10px] shadow-md">
                     <div className='w-[200px] h-[300px] flex items-center justify-center'>
                         <img className='w-full' src={product.img} alt="" />
                     </div>

@@ -24,8 +24,11 @@ function Register() {
         const form = event.target;
         const name = form.name.value
         const email = form.email.value
+        const identity =form.identity.value;
         const photoUrl = form.photo.value
         const password = form.password.value
+
+        // console.log(name,email,identity,photoUrl,password);
 
         createUser(email,password)
         .then(result => {
@@ -89,13 +92,23 @@ function Register() {
                             <input type="text" name="name" id="name" className="bg-gray-50 border border-gray-300 text-gray-900 sm:text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5" placeholder="henry haon" required=""/>
                         </div>
                         <div>
-                            <label htmlFor="photo" className="block mb-2 text-sm font-medium text-gray-900">Photo Url</label>
-                            <input type="text" name="photo" id="photo" className="bg-gray-50 border border-gray-300 text-gray-900 sm:text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5" placeholder="paste photo url" required=""/>
-                        </div>
-                        <div>
                             <label htmlFor="email" className="block mb-2 text-sm font-medium text-gray-900 ">Your email</label>
                             <input type="email" name="email" id="email" className="bg-gray-50 border border-gray-300 text-gray-900 sm:text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5" placeholder="name@company.com" required=""/>
                         </div>
+                        <div className='flex gap-x-2'>
+                            <div className="w-1/2">
+                                <label htmlFor="photo" className="block mb-2 text-sm font-medium text-gray-900">Photo Url</label>
+                                <input type="text" name="photo" id="photo" className="bg-gray-50 border border-gray-300 text-gray-900 sm:text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5" placeholder="paste photo url" required=""/>
+                            </div>
+                            <div className="w-2/3">
+                            <label htmlFor="identity" className="block mb-2 text-sm font-medium text-gray-900">Buyer or seller ?</label>
+                                <select className='bg-gray-50 border border-gray-300 text-gray-900 sm:text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5' name="identity" id="identity">
+                                    <option value="buyer">Buyer</option>
+                                    <option value="seller">seller</option>
+                                </select>
+                            </div>
+                        </div>
+                       
                         <div>
                             <label htmlFor="password" className="block mb-2 text-sm font-medium text-gray-900">Password</label>
                             <input type="password" name="password" id="password" placeholder="••••••••" className="bg-gray-50 border border-gray-300 text-gray-900 sm:text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5" required=""/>
