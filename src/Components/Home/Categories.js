@@ -21,11 +21,11 @@ function Categories() {
     <div className='mx-[5%] my-20'>
         <h2 className='text-3xl font-medium'>Browser Category</h2>
         <p className='text-black/50 mt-2'>Browser and choose the best deal for you</p>
-        <div className="grid grid-cols-3 mt-10">
+        <div className="flex gap-x-10 mt-10">
         {
             categories.map(category => 
-            <div className="">
-                <img src={category.img} alt="" srcset="" />
+            <div className="w-full">
+                <img className='w-full rounded-lg' src={category.img} alt="" srcset="" />
                 <p className='text-xl font-medium text-black/60'>{category.name}</p>
             </div>
             )
