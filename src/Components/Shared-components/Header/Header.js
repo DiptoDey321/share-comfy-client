@@ -7,7 +7,7 @@ function Header() {
       <nav>
         <header className='flex justify-between px-10 items-center py-5'>
           <div className="logo">
-            <img className='w-48' src="https://i.ibb.co/THXw8rZ/logo.webp" alt="" srcSet="" />
+            <Link to='/'><img className='w-48' src="https://i.ibb.co/THXw8rZ/logo.webp" alt="" srcSet="" /></Link>
           </div>
           <div className="others-menu">
             <ul className='text-xl flex gap-x-5 font-medium mr-5'>
