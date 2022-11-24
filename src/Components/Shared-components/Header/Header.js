@@ -1,4 +1,5 @@
 import React from 'react'
+import { Link } from 'react-router-dom'
 
 function Header() {
   return (
@@ -11,8 +12,8 @@ function Header() {
           <div className="others-menu">
             <ul className='text-xl flex gap-x-5 font-medium mr-5'>
               <li></li>
-              <li>Blog</li>
-              <li>Login</li>
+              <li><Link>Blog</Link></li>
+              <li> <Link to='/login'>Login</Link> </li>
             </ul>
           </div>
         </header>
