@@ -29,7 +29,7 @@ function Categories() {
         {
             categories.map(category => 
             <div key={category._id} className="w-full">
-               <Link>
+               <Link to={`/category/${category._id}`}>
                     <img className='w-full rounded-lg' src={category.img} alt="" srcSet="" />
                     <p className='text-xl font-medium text-black/60'>{category.name}</p>
                </Link>

@@ -1,6 +1,7 @@
 import { createBrowserRouter, RouterProvider } from 'react-router-dom';
 import './App.css';
 import Layout from './Layout/Layout';
+import Category from './Pages/Category';
 import Home from './Pages/Home';
 import Login from './Pages/Login';
 import Register from './Pages/Register';
@@ -14,6 +15,10 @@ function App() {
         {
           path : '/',
           element : <Home></Home>
+        },
+        {
+          path : '/category/:id',
+          element : <Category></Category>
         },
         {
           path : '/login',
