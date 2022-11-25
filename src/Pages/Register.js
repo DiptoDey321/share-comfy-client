@@ -27,8 +27,9 @@ function Register() {
         const identity =form.identity.value;
         const photoUrl = form.photo.value
         const password = form.password.value
+        // let currentDate = new Date().toJSON().slice(0, 10);
 
-        // console.log(name,email,identity,photoUrl,password);
+        console.log(name,email,identity,photoUrl,password);
 
         createUser(email,password)
         .then(result => {

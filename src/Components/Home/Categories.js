@@ -1,22 +1,23 @@
 import React from 'react'
+import { Link } from 'react-router-dom'
 
 function Categories() {
     
 
     const categories = [
         {
-            "_id" : "dweqwqw23",
+            "_id" : "workSpaceFurniture",
             "name" : "Workspace Furniture",
             "img" : "https://i.ibb.co/KF0L9F4/workspace.png"
         },
         {
-            "_id" : "dwe2wew3",
+            "_id" : "kitchenFurnture",
             "name" : "Kitchen Furniture",
             "img" : "https://i.ibb.co/bzdv8fG/kitchen.png"
         },
         {
-            "_id" : "efubk23",
-            "name" : "Room Furniture",
+            "_id" : "homeFurniture",
+            "name" : "Home Furniture",
             "img" : "https://i.ibb.co/zmjV4Mz/home.png"
         }
     ]
@@ -28,8 +29,10 @@ function Categories() {
         {
             categories.map(category => 
             <div key={category._id} className="w-full">
-                <img className='w-full rounded-lg' src={category.img} alt="" srcSet="" />
-                <p className='text-xl font-medium text-black/60'>{category.name}</p>
+               <Link>
+                    <img className='w-full rounded-lg' src={category.img} alt="" srcSet="" />
+                    <p className='text-xl font-medium text-black/60'>{category.name}</p>
+               </Link>
             </div>
             )
         }
