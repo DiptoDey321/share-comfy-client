@@ -6,21 +6,18 @@ function Heropart() {
 
     const heroItems = [
         {
-            "_id" : "121334",
             "title" : "Trending Collection",
             "miniTitle" : "Get the most trending used furniture in affortable price",
             "Description" : "The Biggest online market place for buying & selling old furniture at low price from our trusted seller. Buy and get your things in a reasonable price",
             "img" : "https://i.ibb.co/VVBfgfB/farhad-fallahzad-Vt-QMBG-Ljc0-unsplash-removebg-preview-removebg-preview.png"
         },
         {
-            "_id" : "dwe23",
             "title" : "Work station Collection",
             "miniTitle" : "Customized your Work station room now by doing best deal",
             "Description" : "The Biggest online market place for buying & selling old furniture at low price from our trusted seller. Customize your work-station in low price with high resource",
             "img" : "https://i.ibb.co/d5FHYp7/aditya-wardhana-oo-Z3a5k7-GFQ-unsplash-removebg-preview.png"
         },
         {
-            "_id" : "dwe1223",
             "title" : "Room Collection",
             "miniTitle" : "Customized your bed room at in your choice. Do the best deal",
             "Description" : "The Biggest online market place for buying & selling old furniture at low price from our trusted seller and Save upto 50% in every deal",
@@ -32,7 +29,7 @@ function Heropart() {
         <Swiper className="mySwiper" >
         {
             heroItems.map(item =>
-                <SwiperSlide key={item._id}>
+                <SwiperSlide>
                     <div className="w-full h-[600px] flex items-center justify-center">
                         <div className="w-1/2">
                             <h2 className='text-[40px] font-medium'>{item.title}</h2>

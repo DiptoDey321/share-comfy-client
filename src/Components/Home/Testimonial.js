@@ -4,7 +4,7 @@ function Testimonial() {
   return (
     <div className='mx-[10%] my-20 bg-slate-200 rounded-[10px] h-[400px] flex items-center'>
         <div className="w-1/3 h-full flex justify-center">
-            <img className='h-full' src="https://i.ibb.co/qWfYFjF/jean-philippe-delberghe-Ry9-WBo3qmoc-unsplash-removebg-preview-removebg-preview.png" alt="" srcSet="" />
+            <img className='h-full' src="https://i.ibb.co/qWfYFjF/jean-philippe-delberghe-Ry9-WBo3qmoc-unsplash-removebg-preview-removebg-preview.png" alt="" srcset="" />
         </div>
         <div className="w-2/3 h-full flex flex-col justify-center">
             <div className="w-[90%]">
