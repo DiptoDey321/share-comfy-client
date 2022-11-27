@@ -12,9 +12,13 @@ function Myorders() {
       .then (data => SetBookedData(data))
   },[user])
 
+  const paymentHandler =(data) =>{
+    console.log(data);
+  }
+
   
 
-  console.log(bookedData.customerName);
+  console.log(bookedData);
 
   return (
     <div>
@@ -32,12 +36,12 @@ function Myorders() {
                   bookedData.map((data,i) =>
                     <tr key={i}>
                       <td className='td-style'>
-                        <div className="w-20 h-20"><img src={bookedData?.picture} alt="" srcSet="" /></div>
+                        <div className="w-20 h-20 relative left-1/2 -translate-x-1/2 rounded-sm"><img src={data?.picture} alt="" srcSet="" /></div>
                       </td>
-                      <td className='td-style'>{bookedData?.productName}</td>
-                      <td className='td-style'>Malcolm Lockyer</td>
+                      <td className='td-style'>{data?.productName}</td>
+                      <td className='td-style'>{data?.productPrice}</td>
                       <td className='td-style'>
-                          <button className='px-10 py-2 text-sm bg-green-700 text-white relative left-1/2 -translate-x-1/2 rounded-sm'>Pay</button>
+                          <button onClick={()=> paymentHandler(data)} className='px-10 py-2 text-sm bg-green-700 text-white relative left-1/2 -translate-x-1/2 rounded-sm'>Pay</button>
                       </td>
                     </tr> )
                 }
