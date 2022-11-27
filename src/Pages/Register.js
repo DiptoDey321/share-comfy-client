@@ -1,13 +1,16 @@
 import { GoogleAuthProvider } from 'firebase/auth'
 import React, { useContext, useState } from 'react'
-import { Link } from 'react-router-dom'
+import { Link, useNavigate } from 'react-router-dom'
+import { toast } from 'react-toastify'
 import { AuthContext } from '../Authentication/Authentication'
 
 function Register() {
  
     const [error, setError] = useState('')
+    const navigate = useNavigate();
     const [accept, setAccept] = useState(false)
     const {createUser,prodiverLogin,updateUserProfile} = useContext(AuthContext)
+    const imageApiKey = process.env.REACT_APP_imgbb_key;
 
     const googleProvider = new GoogleAuthProvider()
 
@@ -21,48 +24,96 @@ function Register() {
 
     const handleRegisterForm = (event) =>{
         event.preventDefault()
-        const form = event.target;
-        const name = form.name.value
-        const email = form.email.value
-        const identity =form.identity.value;
-        const photoUrl = form.photo.value
-        const password = form.password.value
-        // let currentDate = new Date().toJSON().slice(0, 10);
-
-        console.log(name,email,identity,photoUrl,password);
-
-        createUser(email,password)
-        .then(result => {
-            const user = result.user
-            console.log(user)
-            setError("")
-            form.reset();
-            handleUpdateUserProfile(name,photoUrl)
+        const img = event.target.image.files[0];
+        const formData = new FormData();
+        formData.append('image', img)
+        const url = `https://api.imgbb.com/1/upload?key=${imageApiKey}`
+        fetch(url,{
+            method : 'POST',
+            body : formData
         })
-        .catch(error =>{
-            setError(error.message)
-        })  
+        .then(res => res.json())
+        .then (imageData =>{
+            if(imageData.success){
+                const name = event.target.name.value;
+                const email = event.target.email.value;
+                const role =event.target.identity.value;
+                const photoURL = imageData.data.url;
+                const password = event.target.password.value;
+
+                createUser(email,password)
+                .then(result => {
+                    const user = result.user
+                    console.log(user)
+                    setError("")
+                    event.target.reset();
+                    handleUpdateUserProfile(name,photoURL)
+                    addUserToDd(name, email, role, photoURL)
+                    toast.success(` "${event.target.name.value}" Registered successfully`)
+                })
+                .catch(error =>{
+                    setError(error.message)
+                }) 
+            }
+        } )  
     }
 
-    const handleUpdateUserProfile = (name, photoUrl) =>{
+    const handleUpdateUserProfile = (name, photoURL) =>{
         const profile = {
-            displayname : name,
-            photoURL : photoUrl
+            displayName : name,
+            photoURL : photoURL
         }
         updateUserProfile(profile)
         .then(()=>{})
         .catch(error => console.log(error))
     }
 
+    const addUserToDd = (name, email, role , photoURL ) =>{
+        const user = {
+            displayName : name,
+            email : email,
+            role : role,
+            photoURL : photoURL,
+            verification : ''
+        }
+        fetch('http://localhost:5000/users',{
+            method: 'POST',
+            headers : {
+                'content-type' : 'application/json'
+            },
+            body : JSON.stringify(user)
+        })
+        .then(res => res.json())
+        .then(data => {
+            if(data.acknowledged){
+                toast.success(` "${name}" Registered successfully`) 
+                getUserToken(email)
+            }
+        })
+    }
+
+
+    const getUserToken = (email) =>{
+        fetch(`http://localhost:5000/jwt?${email}`)
+        .then(res => res.json())
+        .then( data => {
+            if(data.accessToken){
+                localStorage.setItem('accessToken', data.accessToken)
+                navigate('/')
+            }
+        })
+    }
+
     const termsHandler = (event) =>{
         setAccept(event.target.checked);
     }
+
   return (
     <div>
     <section className="bg-gray-50 pt-10 pb-48">
         <div className="flex flex-col items-center px-6 py-8 mx-auto md:h-screen lg:py-0 ">
             <div className="w-full bg-white rounded-lg shadow dark:border md:mt-0 sm:max-w-[30rem] xl:p-0 ">
-                <div className="p-6 space-y-4 md:space-y-6 sm:p-8">
+                <div className="p-6 space-y-4 md:space-y-4 sm:p-8">
                     <h1 className="text-xl font-bold leading-tight tracking-tight text-gray-900 md:text-2xl">
                         Create and account
                     </h1>
@@ -98,11 +149,11 @@ function Register() {
                         </div>
                         <div className='flex gap-x-2'>
                             <div className="w-1/2">
-                                <label htmlFor="photo" className="block mb-2 text-sm font-medium text-gray-900">Photo Url</label>
-                                <input type="text" name="photo" id="photo" className="bg-gray-50 border border-gray-300 text-gray-900 sm:text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5" placeholder="paste photo url" required=""/>
+                                <label htmlFor="img" className="block mb-2 text-sm font-medium text-gray-900">Profile photo</label>
+                                <input name="image" className='shadow-sm bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full px-2.5 py-[8.5px]' type="file" id="img"/>
                             </div>
-                            <div className="w-2/3">
-                            <label htmlFor="identity" className="block mb-2 text-sm font-medium text-gray-900">Buyer or seller ?</label>
+                            <div className="w-1/2">
+                                <label htmlFor="identity" className="block mb-2 text-sm font-medium text-gray-900">Buyer or seller ?</label>
                                 <select className='bg-gray-50 border border-gray-300 text-gray-900 sm:text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5' name="identity" id="identity">
                                     <option value="buyer">Buyer</option>
                                     <option value="seller">seller</option>
@@ -123,7 +174,7 @@ function Register() {
                                 <label htmlFor="terms" className="font-light text-gray-500">I accept the <Link className="font-medium text-primary-600 hover:underline" href="#">Terms and Conditions</Link></label>
                             </div>
                         </div>
-                        <p className='text-sm text-red-700 font-bold'>{error}</p>
+                        {error && <p className='text-sm text-red-700 font-bold'>{error}</p>}
                         <button style={{ backgroundColor: accept ? 'blue' : ' gray' }} disabled={!accept} type="submit" className="w-full text-white font-medium rounded-lg text-sm px-5 py-2.5 text-center">Create an account</button>
                         <p className="text-sm font-light text-gray-500 dark:text-gray-400">
                             Already have an account? <Link to='/login' className="font-medium text-primary-600 hover:underline dark:text-primary-500">Login here</Link>

@@ -1,6 +1,7 @@
 [
     {
         "name": "Wooden Sofa",
+        "email" : "diptodey25@gmail.com",
         "picture": "https://i.ibb.co/7ykFM3f/sofa.jpg",
         "category": "homeFurniture",
         "resellPrice": "140",
@@ -9,10 +10,12 @@
         "postTime": "2022-11-25",
         "SellerName": "Conley Hurst",
         "phone": "+880 (997) 581-2589",
+        "condition" : "Fair",
         "location": "817 Hyman Court, Bloomington, Florida, 7495"
     },
     {
         "name": "Tv Holder Almari",
+        "email" : "diptodey25@gmail.com",
         "picture": "https://i.ibb.co/0mVzGx0/tv.jpg",
         "category": "homeFurniture",
         "resellPrice": "200",
@@ -21,10 +24,12 @@
         "postTime": "2022-11-24",
         "SellerName": "Kane Keith",
         "phone": "+880 (954) 554-2617",
+        "condition" : "Good",
         "location": "852 Lincoln Place, Cliffside, New Mexico, 5964"
     },
     {
         "name": "Desktop Table",
+        "email" : "diptodey25@gmail.com",
         "picture": "https://i.ibb.co/8NqGd3f/work.jpg",
         "category": "workSpaceFurniture",
         "resellPrice": "210",
@@ -33,10 +38,12 @@
         "postTime": "2022-11-22",
         "SellerName": "Sloan Mckinney",
         "phone": "+880 (947) 425-3516",
+        "condition" : "Excellent",
         "location": "849 Johnson Street, Kylertown, Rhode Island, 5962"
     },
     {
         "name": "Shoe ALmari",
+        "email" : "diptodey25@gmail.com",
         "picture": "https://i.ibb.co/Ybd552j/shoe.jpg",
         "category": "workSpaceFurniture",
         "resellPrice": "220",
@@ -45,10 +52,12 @@
         "postTime": "2022-11-22",
         "SellerName": "Johnnie Pearson",
         "phone": "+880 (914) 428-3605",
+        "condition" : "Fair",
         "location": "286 Bragg Street, Needmore, Michigan, 1878"
     },
     {
         "name": "Study Table",
+        "email" : "diptodey25@gmail.com",
         "picture": "https://i.ibb.co/PGnzMQg/study-table.jpg",
         "category": "homeFurniture",
         "resellPrice": "100",
@@ -57,10 +66,12 @@
         "postTime": "2022-11-25",
         "SellerName": "Claire Maxwell",
         "phone": "+880 (801) 451-2272",
+        "condition" : "Good",
         "location": "794 Lawn Court, Topaz, Wyoming, 6268"
     },
     {
         "name": "Book-self",
+        "email" : "diptodey25@gmail.com",
         "picture": "https://i.ibb.co/St8L1Lh/book-self.jpg",
         "category": "homeFurniture",
         "resellPrice": "80",
@@ -69,10 +80,12 @@
         "postTime": "2022-11-21",
         "SellerName": "Maxima Farley",
         "phone": "+880 (899) 572-3669",
+        "condition" : "Fair",
         "location": "554 Kossuth Place, Nicut, Ohio, 2471"
     },
     {
         "name": "Tea Table & chair",
+        "email" : "diptodey25@gmail.com",
         "picture": "https://i.ibb.co/jrFgR6J/tea.png",
         "category": "homeFurniture",
         "resellPrice": "380",
@@ -81,10 +94,12 @@
         "postTime": "2022-11-24",
         "SellerName": "Fusti carly",
         "phone": "+880 (899) 572-3669",
+        "condition" : "Excellent",
         "location": "554 Kossuth Place, Nicut, Ohio, 2471"
     },
     {
         "name": "kitchen dinning",
+        "email" : "diptodey25@gmail.com",
         "picture": "https://i.ibb.co/5n0Mv1J/Kitchen-dinning.jpg",
         "category": "kitchenFurnture",
         "resellPrice": "400",
@@ -93,10 +108,12 @@
         "postTime": "2022-11-24",
         "SellerName": "Nostal Geroge",
         "phone": "+880 (899) 572-3669",
+        "condition" : "Good",
         "location": "554 Kossuth Place, Nicut, Ohio, 2471"
     },
     {
         "name": "Kitchen Middle Table",
+        "email" : "diptodey25@gmail.com",
         "picture": "https://i.ibb.co/MVsXWcs/kitchen-table.jpg",
         "category": "kitchenFurnture",
         "resellPrice": "290",
@@ -105,6 +122,7 @@
         "postTime": "2022-11-24",
         "SellerName": "Sujayna Hermandis",
         "phone": "+880 (899) 572-3669",
+        "condition" : "Excellent",
         "location": "849 Johnson Street, Kylertown, Rhode Island, 5962"
     }
 ]

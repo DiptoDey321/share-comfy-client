@@ -3,7 +3,7 @@ import React from 'react'
 function AllBuyer() {
   return (
     <div>
-          <table class="table-auto w-full bg-white ">
+          <table className="table-auto w-full bg-white ">
             <thead>
                 <tr>
                     <th className='text-left p-5 bg-slate-200 text-black/70'>Name</th>

@@ -1,3 +1,27 @@
 .td-style{
    @apply px-5 py-3 border text-black/70 text-sm; 
 }
+.lds-dual-ring {
+   display: inline-block;
+   width: 180px;
+   height: 180px;
+ }
+ .lds-dual-ring:after {
+   content: " ";
+   display: block;
+   width: 164px;
+   height: 164px;
+   margin: 8px;
+   border-radius: 50%;
+   border: 10px solid rgb(148, 148, 148);
+   border-color: rgb(148, 148, 148) transparent rgb(148, 148, 148) transparent;
+   animation: lds-dual-ring 1.2s linear infinite;
+ }
+ @keyframes lds-dual-ring {
+   0% {
+     transform: rotate(0deg);
+   }
+   100% {
+     transform: rotate(360deg);
+   }
+ }

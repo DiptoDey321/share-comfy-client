@@ -4,7 +4,7 @@ import { Link, useLocation, useNavigate } from 'react-router-dom';
 import { AuthContext } from '../Authentication/Authentication';
 
 function Login() {
-    const {prodiverLogin} = useContext(AuthContext)
+    const {prodiverLogin } = useContext(AuthContext)
     const [error, setError] = useState('')
     const {signIn} = useContext(AuthContext)
     const navigate = useNavigate();
