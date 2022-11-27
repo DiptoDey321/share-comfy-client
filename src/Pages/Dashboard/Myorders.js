@@ -1,4 +1,5 @@
 import React, { useContext, useEffect, useState } from 'react'
+import { Link } from 'react-router-dom';
 import { AuthContext } from '../../Authentication/Authentication'
 
 function Myorders() {
@@ -41,7 +42,9 @@ function Myorders() {
                       <td className='td-style'>{data?.productName}</td>
                       <td className='td-style'>{data?.productPrice}</td>
                       <td className='td-style'>
-                          <button onClick={()=> paymentHandler(data)} className='px-10 py-2 text-sm bg-green-700 text-white relative left-1/2 -translate-x-1/2 rounded-sm'>Pay</button>
+                          <Link to={`/dashboard/payment/${data._id}`}>
+                            <button onClick={()=> paymentHandler(data)} className='px-10 py-2 text-sm bg-green-700 text-white relative left-1/2 -translate-x-1/2 rounded-sm'>Pay</button>
+                          </Link>
                       </td>
                     </tr> )
                 }

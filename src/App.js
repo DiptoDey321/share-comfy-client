@@ -13,6 +13,7 @@ import MyProducts from './Pages/Dashboard/MyProducts';
 import Home from './Pages/Home';
 import Login from './Pages/Login';
 import Register from './Pages/Register';
+import Payment from './Payment/Payment';
 
 function App() {
   const router = createBrowserRouter([
@@ -65,6 +66,10 @@ function App() {
         {
           path : '/dashboard/my-order',
           element : <Myorders></Myorders>
+        },
+        {
+          path : '/dashboard/payment/:id',
+          element : <Payment></Payment>
         },
         
       ]
