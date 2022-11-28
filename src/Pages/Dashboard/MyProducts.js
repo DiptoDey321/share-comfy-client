@@ -11,7 +11,7 @@ function MyProducts() {
 
   const [myProduct, setMyProduct] = useState([])
     useEffect(()=>{
-        fetch(`http://localhost:5000/userProducts/${mngoUser?.email}`,{
+        fetch(`https://share-comfy-server.vercel.app/userProducts/${mngoUser?.email}`,{
           headers : {
             authorization : `bearer ${localStorage.getItem('accessToken')} `
           }
@@ -25,7 +25,7 @@ function MyProducts() {
     const deleteProduct = (product) =>{
       const agree = window.confirm(`are you sure to delete ${product.name}`);
       if(agree){
-          fetch(`http://localhost:5000/product/${product._id}`,{
+          fetch(`https://share-comfy-server.vercel.app/product/${product._id}`,{
               method: "DELETE",
           })
           .then(res => res.json())
@@ -41,7 +41,7 @@ function MyProducts() {
     }
 
     const advertiseProduct = (product) =>{
-      fetch('http://localhost:5000/avertise',{
+      fetch('https://share-comfy-server.vercel.app/avertise',{
         method : 'POST',
         headers : {
             'content-type' : 'application/json'

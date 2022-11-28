@@ -11,7 +11,7 @@ function Payment() {
     const {id} = useParams();
     const [bookedItem,setBookedItem] = useState([])
     useEffect(()=>{
-        fetch(`http://localhost:5000/booking/${id}`)
+        fetch(`https://share-comfy-server.vercel.app/booking/${id}`)
         .then(res => res.json())
         .then(data =>  setBookedItem(data))
     },[id])

@@ -80,7 +80,7 @@ function Register() {
             role : role,
             photoURL : photoURL
         }
-        fetch('http://localhost:5000/users',{
+        fetch('https://share-comfy-server.vercel.app/users',{
             method: 'POST',
             headers : {
                 'content-type' : 'application/json'
@@ -98,7 +98,7 @@ function Register() {
 
 
     const getUserToken = (email) =>{
-        fetch(`http://localhost:5000/jwt?${email}`)
+        fetch(`https://share-comfy-server.vercel.app/jwt?${email}`)
         .then(res => res.json())
         .then( data => {
             if(data.accessToken){

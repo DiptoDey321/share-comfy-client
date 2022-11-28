@@ -13,7 +13,7 @@ function Authentication({children}) {
 
   
   useEffect(()=>{
-    fetch(`http://localhost:5000/user/${user?.email}`)
+    fetch(`https://share-comfy-server.vercel.app/user/${user?.email}`)
     .then(res => res.json())
     .then(data =>SetMngoUser(data))
   },[user?.email])

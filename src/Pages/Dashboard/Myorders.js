@@ -8,7 +8,7 @@ function Myorders() {
   // console.log(user?.email);
 
   useEffect(()=>{
-      fetch(`http://localhost:5000/bookingProducts/${user?.email}`,{
+      fetch(`https://share-comfy-server.vercel.app/bookingProducts/${user?.email}`,{
         headers : {
           authorization : `bearer ${localStorage.getItem('accessToken')} `
         }
