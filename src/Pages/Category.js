@@ -35,7 +35,7 @@ function Category() {
       customerName : event.target.customerName.value,
       customerEmail : event.target.customerEmail.value,
       productName : event.target.productName.value,
-      productPrice : event.target.productPrice.value,
+      productPrice : Number(event.target.productPrice.value),
       customerNumber : event.target.customerNumber.value,
       customerLocation : event.target.customerLocation.value,
       bookedDate  : new Date().toJSON().slice(0, 10),
@@ -74,7 +74,17 @@ function Category() {
                   </div>
                   <div className="mx-3 pb-3">
                     <h2 className='mt-3 text-lg font-bold text-black/80'>{product.name}</h2>
-                    <h3 className='text-lg mb-3 text-black/70'>Seller - <span className='font-medium'>{product.SellerName}</span> </h3>
+                    <h3 className='text-lg mb-3 text-black/70 flex items-center gap-x-2'>
+                      Seller - <span className='font-medium'>{product.SellerName}</span>
+                      <span>
+                        {product?.verification?
+                          <svg width="22" height="22" viewBox="0 0 22 22" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M22 11L19.56 8.22004L19.9 4.54004L16.29 3.72004L14.4 0.540039L11 2.00004L7.6 0.540039L5.71 3.72004L2.1 4.53004L2.44 8.21004L0 11L2.44 13.78L2.1 17.47L5.71 18.29L7.6 21.47L11 20L14.4 21.46L16.29 18.28L19.9 17.46L19.56 13.78L22 11ZM9 16L5 12L6.41 10.59L9 13.17L15.59 6.58004L17 8.00004L9 16Z" fill="#5566FF"/>
+                          </svg> 
+                        :
+
+                        ''}
+                      </span> </h3>
                     <div className="border-t py-2.5">
                       <div className="flex justify-between mt-2 ">
                         <p className='text-sm'>Resell Price : <span className='font-medium text-green-800'>$ {product.resellPrice}</span></p>
@@ -128,7 +138,7 @@ function Category() {
                   </div>
                   <div className="w-1/3">
                     <label htmlFor="productPrice" className='text-sm font-medium text-gray-700'>Product Price</label> <br />
-                    <input name='productPrice' id='productPrice' className='text-sm border w-full p-2.5 rounded-sm mt-2 text-gray-600' value={ `${bookedItem?.resellPrice}$`} type="text" disabled />
+                    <input name='productPrice' id='productPrice' className='text-sm border w-full p-2.5 rounded-sm mt-2 text-gray-600' value={bookedItem?.resellPrice} type="text" disabled />
                   </div>
                 </div>
 

@@ -2,6 +2,7 @@ import React, { useContext, useState } from 'react'
 import { GoogleAuthProvider } from 'firebase/auth';
 import { Link, useLocation, useNavigate } from 'react-router-dom';
 import { AuthContext } from '../Authentication/Authentication';
+import { toast } from 'react-toastify';
 
 function Login() {
     const {prodiverLogin } = useContext(AuthContext)
@@ -40,11 +41,49 @@ function Login() {
         prodiverLogin(googleProvider)
         .then(result =>{
             const user = result.user;
-            console.log(user);
+            const name = user.displayName;
+            const email = user.email
+            const role = 'buyer';
+            const photoURL = user.photoURL;
+            console.log(name, email,role,photoURL);
+            addUserToDd(name, email, role, photoURL)
             navigate(from, {replace : true})
             setError('')
         }).catch(error =>{
             setError(error.message)
+        })
+    }
+
+    const addUserToDd = (name, email, role , photoURL ) =>{
+        const user = {
+            displayName : name,
+            email : email,
+            role : role,
+            photoURL : photoURL
+        }
+        fetch('http://localhost:5000/users',{
+            method: 'POST',
+            headers : {
+                'content-type' : 'application/json'
+            },
+            body : JSON.stringify(user)
+        })
+        .then(res => res.json())
+        .then(data => {
+            if(data.acknowledged){
+                toast.success(` "${name}" Registered successfully`) 
+                getUserToken(email)
+            }
+        })
+    }
+    const getUserToken = (email) =>{
+        fetch(`http://localhost:5000/jwt?${email}`)
+        .then(res => res.json())
+        .then( data => {
+            if(data.accessToken){
+                localStorage.setItem('accessToken', data.accessToken)
+                navigate('/')
+            }
         })
     }
 

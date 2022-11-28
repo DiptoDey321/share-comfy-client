@@ -18,7 +18,12 @@ function Register() {
         prodiverLogin(googleProvider)
         .then(result =>{
             const user = result.user;
-            console.log(user);
+            const name = user.displayName;
+            const email = user.email
+            const role = 'buyer';
+            const photoURL = user.photoURL;
+            console.log(name, email,role,photoURL);
+            addUserToDd(name, email, role, photoURL)
         }).catch(error => console.log(error))
     }
 
@@ -73,8 +78,7 @@ function Register() {
             displayName : name,
             email : email,
             role : role,
-            photoURL : photoURL,
-            verification : ''
+            photoURL : photoURL
         }
         fetch('http://localhost:5000/users',{
             method: 'POST',

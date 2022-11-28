@@ -3,6 +3,7 @@ import { ToastContainer } from 'react-toastify';
 import './App.css'
 import DashboardLayout from './Layout/DashboardLayout';
 import Layout from './Layout/Layout';
+import Blog from './Pages/Blog';
 import Category from './Pages/Category';
 import AboutMe from './Pages/Dashboard/AboutMe';
 import AddProduct from './Pages/Dashboard/AddProduct';
@@ -12,8 +13,10 @@ import Myorders from './Pages/Dashboard/Myorders';
 import MyProducts from './Pages/Dashboard/MyProducts';
 import Home from './Pages/Home';
 import Login from './Pages/Login';
+import NotFoundPage from './Pages/NotFoundPage';
 import Register from './Pages/Register';
 import Payment from './Payment/Payment';
+import PrivateRouting from './PrivateRouting/PrivateRouting';
 
 function App() {
   const router = createBrowserRouter([
@@ -27,7 +30,7 @@ function App() {
         },
         {
           path : '/category/:id',
-          element : <Category></Category>
+          element : <PrivateRouting><Category></Category></PrivateRouting>
         },
         {
           path : '/login',
@@ -36,6 +39,10 @@ function App() {
         {
           path : '/register',
           element : <Register></Register>
+        },
+        {
+          path : '/blog',
+          element : <Blog></Blog>
         }
       ]
     },
@@ -74,6 +81,10 @@ function App() {
         
       ]
 
+    },
+    {
+      path : '*',
+      element : <NotFoundPage></NotFoundPage>,
     }
   ])
   return (

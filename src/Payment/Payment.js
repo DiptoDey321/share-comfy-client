@@ -6,6 +6,7 @@ import CheckOutForm from './CheckOutForm';
 
 const stripePromise = loadStripe(process.env.REACT_APP_stripe_key); 
 
+// console.log(process.env.REACT_APP_stripe_key);
 function Payment() {
     const {id} = useParams();
     const [bookedItem,setBookedItem] = useState([])
@@ -22,7 +23,7 @@ function Payment() {
             <div className=" ">
                 <div class="">
                    <h3 className='text-2xl font-medium'>Payment For "{bookedItem?.productName}"</h3>
-                   <p className='text-lg mt-2'>Please, Pay <span className='text-green-700 font-bold'>{bookedItem?.productPrice}</span> to confirm the booking</p>
+                   <p className='text-lg mt-2'>Please, Pay <span className='text-green-700 font-bold'> ${bookedItem?.productPrice}</span> to confirm the booking</p>
                    <div className="w-[500px] mt-10">
                     <Elements stripe={stripePromise}>
                         <CheckOutForm bookedItem={bookedItem} />

@@ -18,9 +18,8 @@ function Header() {
           </div>
           <div className="others-menu">
             <ul className='text-lg flex gap-x-8 font-medium mr-5 text-black/70'>
-              <li><Link>Home</Link></li>
-              <li><Link>About Us</Link></li>
-              <li><Link>Blog</Link></li>
+              <li><Link to='/'>Home</Link></li>
+              <li><Link to='/blog'>Blog</Link></li>
               
                 {
                   user ?<li> <Link to='/dashboard'>Dashboard</Link>  </li>: ''

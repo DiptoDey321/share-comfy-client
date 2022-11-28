@@ -1,4 +1,5 @@
 import React, { useContext, useState } from 'react'
+import { useNavigate } from 'react-router-dom';
 import { toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import { AuthContext } from '../../Authentication/Authentication';
@@ -7,6 +8,7 @@ function AddProduct() {
     const imageApiKey = process.env.REACT_APP_imgbb_key;
     const  [loading,setloading] = useState(false);
     const { user } = useContext(AuthContext)
+    const navigate = useNavigate()
 
 
     const handleAddProductForm = (event) =>{
@@ -28,9 +30,9 @@ function AddProduct() {
                     email : user.email,
                     picture : imageData.data.url,
                     category :  event.target.productCategory.value,
-                    resellPrice : event.target.productPrice.value,
-                    OrginalPrice : event.target.orginalPrice.value,
-                    yearsOfUse : event.target.yearsOfUse.value,
+                    resellPrice : Number(event.target.productPrice.value),
+                    OrginalPrice : Number(event.target.orginalPrice.value),
+                    yearsOfUse : Number(event.target.yearsOfUse.value),
                     postTime  : new Date().toJSON().slice(0, 10),
                     SellerName : user.displayName,
                     phone : event.target.mobileNumber.value,
@@ -52,6 +54,7 @@ function AddProduct() {
                         setloading(false);
                         toast.success(` "${event.target.productName.value}" added successfully`)
                         event.target.reset();
+                        navigate('/dashboard/my-product')
                     }
                 })
             }
@@ -70,8 +73,8 @@ function AddProduct() {
                     <input type="text" id="productName" name='productName' className="shadow-sm bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5" placeholder="Ex : Study table" required/>
                 </div> 
                 <div className="w-1/3">
-                    <label htmlFor="productPrice" className="block mb-2 text-sm font-medium text-gray-900 ">Product Price </label>
-                    <input type="text" id="productPrice" name='productPrice' className="shadow-sm bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5" placeholder="Ex : $50" required/>
+                    <label htmlFor="productPrice" className="block mb-2 text-sm font-medium text-gray-900 ">Resell Price </label>
+                    <input type="number" id="productPrice" name='productPrice' className="shadow-sm bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5" placeholder="Ex : $50" required/>
                 </div>
                 <div className="w-1/3">
                     <label htmlFor="orginalPrice" className="block mb-2 text-sm font-medium text-gray-900">Orginal price</label>

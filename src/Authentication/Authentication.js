@@ -9,6 +9,13 @@ function Authentication({children}) {
 
   const [user, setUser] = useState(null)
   const [loading, setLoading] = useState(true)
+  const [mngoUser, SetMngoUser] = useState([])
+  
+  useEffect(()=>{
+    fetch(`http://localhost:5000/user/${user?.email}`)
+    .then(res => res.json())
+    .then(data =>SetMngoUser(data))
+  },[user?.email])
 
   const prodiverLogin = (provider) =>{
     setLoading(true);
@@ -43,7 +50,7 @@ function Authentication({children}) {
     return signOut(auth)
   }
   // const user = {display : "Dipto"}
-  const authInfo = {user, prodiverLogin ,logOut ,createUser, signIn, loading ,updateUserProfile}
+  const authInfo = {user, prodiverLogin ,logOut ,createUser, signIn, loading ,updateUserProfile,mngoUser}
   return (
 
     <AuthContext.Provider value={authInfo}>

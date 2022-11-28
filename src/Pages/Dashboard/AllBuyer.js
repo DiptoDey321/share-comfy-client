@@ -1,6 +1,36 @@
-import React from 'react'
+import React, { useEffect, useState } from 'react'
+import { toast } from 'react-toastify'
 
 function AllBuyer() {
+    
+    const [buyers, setBuyers] = useState([])
+    useEffect(()=>{
+        fetch('http://localhost:5000/users/buyer')
+        .then(res => res.json())
+        .then(data => setBuyers(data))
+       
+    },[])
+
+    const deleteUser = (buyer) =>{
+        const agree = window.confirm(`are you sure to delete ${buyer.name}`);
+        if(agree){
+            fetch(`http://localhost:5000/user/${buyer._id}`,{
+                method: "DELETE",
+            })
+            .then(res => res.json())
+            .then(data => {
+                if(data.deletedCount > 0){
+                    // alert('Deleted successfully')
+                    toast.success("Deleted succefully!")
+                    const remainingReview = buyers
+                    .filter(prod => prod._id !== buyer._id)
+                    setBuyers(remainingReview)
+                }
+            })
+        }
+    }
+
+    console.log(buyers);
   return (
     <div>
           <table className="table-auto w-full bg-white ">
@@ -12,18 +42,18 @@ function AllBuyer() {
                 </tr>
             </thead>
             <tbody>
-                <tr>
-                    <td className='td-style'>The Sliding Mr. Bones (Next Stop, Pottersville)</td>
-                    <td className='td-style'>Malcolm Lockyer</td>
-                    <td className='flex justify-center items-center td-style'>
-                        <button className='px-5 py-1 text-sm bg-red-600 text-white'>Delete</button>
-                    </td>
-                </tr>
-                <tr>
-                    <td className='td-style'>Witchy Woman</td>
-                    <td className='td-style'>The Eagles</td>
-                    <td className='td-style'>1972</td>
-                </tr>
+                {
+                    buyers?.map(buyer =>
+                        <tr key={buyer._id}>
+                            <td className='td-style'>{buyer.displayName}</td>
+                            <td className='td-style'>{buyer.email}</td>
+                            <td className='flex justify-center items-center td-style'>
+                                <button onClick={()=> deleteUser (buyer)} className='px-5 py-1 text-sm bg-red-600 text-white'>Delete</button>
+                            </td>
+                    </tr>
+                    )
+                }
+               
             </tbody>
         </table>
     </div>
