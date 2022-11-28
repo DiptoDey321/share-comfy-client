@@ -9,9 +9,6 @@ function Myorders() {
 
   useEffect(()=>{
       fetch(`https://share-comfy-server.vercel.app/bookingProducts/${user?.email}`,{
-        headers : {
-          authorization : `bearer ${localStorage.getItem('accessToken')} `
-        }
       })
       .then(res => res.json())
       .then (data => SetBookedData(data))

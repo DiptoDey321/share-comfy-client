@@ -12,9 +12,7 @@ function MyProducts() {
   const [myProduct, setMyProduct] = useState([])
     useEffect(()=>{
         fetch(`https://share-comfy-server.vercel.app/userProducts/${mngoUser?.email}`,{
-          headers : {
-            authorization : `bearer ${localStorage.getItem('accessToken')} `
-          }
+         
         })
         .then(res => res.json())
         .then(data => setMyProduct(data))
