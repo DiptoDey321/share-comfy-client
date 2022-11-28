@@ -1,5 +1,6 @@
 import { createBrowserRouter, RouterProvider } from 'react-router-dom';
 import { ToastContainer } from 'react-toastify';
+import AdminRouting from './AdminRouting/AdminRouting';
 import './App.css'
 import DashboardLayout from './Layout/DashboardLayout';
 import Layout from './Layout/Layout';
@@ -48,7 +49,7 @@ function App() {
     },
     {
       path : '/dashboard',
-      element : <DashboardLayout></DashboardLayout>,
+      element : <PrivateRouting> <DashboardLayout></DashboardLayout></PrivateRouting>,
       children : [
         {
           path : '/dashboard',
@@ -56,11 +57,11 @@ function App() {
         },
         {
           path : '/dashboard/all-Seller',
-          element : <AllSeller></AllSeller>
+          element : <AdminRouting><AllSeller></AllSeller></AdminRouting>
         },
         {
           path : '/dashboard/all-buyer',
-          element : <AllBuyer></AllBuyer>
+          element : <AdminRouting><AllBuyer></AllBuyer></AdminRouting>
         },
         {
           path : '/dashboard/add-product',

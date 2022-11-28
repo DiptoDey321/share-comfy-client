@@ -10,12 +10,15 @@ function Authentication({children}) {
   const [user, setUser] = useState(null)
   const [loading, setLoading] = useState(true)
   const [mngoUser, SetMngoUser] = useState([])
+
   
   useEffect(()=>{
     fetch(`http://localhost:5000/user/${user?.email}`)
     .then(res => res.json())
     .then(data =>SetMngoUser(data))
   },[user?.email])
+
+  console.log(mngoUser);
 
   const prodiverLogin = (provider) =>{
     setLoading(true);

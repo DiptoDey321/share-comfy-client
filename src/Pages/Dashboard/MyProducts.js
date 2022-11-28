@@ -73,14 +73,14 @@ function MyProducts() {
             </thead>
             <tbody>
                 {
-                  myProduct.map(product =>
+                  myProduct?.map(product =>
                     <tr key={product._id}>
                       <td className='td-style'>
                         <div className="">
-                          <img className='w-20 h-20' src={product.picture} alt="" srcSet="" />
+                          <img className='w-20 h-20' src={product?.picture} alt="" srcSet="" />
                         </div>
                       </td>
-                      <td className='td-style'>{product.name} </td>
+                      <td className='td-style'>{product?.name} </td>
                       <td className='td-style'> 
                         <button className='px-10 py-2 text-sm bg-green-700 text-white relative left-1/2 -translate-x-1/2 rounded-sm'>Sold</button>
                       </td>
