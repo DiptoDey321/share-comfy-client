@@ -11,7 +11,7 @@ function MyProducts() {
 
   const [myProduct, setMyProduct] = useState([])
     useEffect(()=>{
-        fetch(`https://share-comfy-server.vercel.app/userProducts/${mngoUser?.email}`,{
+        fetch(`https://share-comfy-server-coral.vercel.app/userProducts/${mngoUser?.email}`,{
          
         })
         .then(res => res.json())
@@ -23,7 +23,7 @@ function MyProducts() {
     const deleteProduct = (product) =>{
       const agree = window.confirm(`are you sure to delete ${product.name}`);
       if(agree){
-          fetch(`https://share-comfy-server.vercel.app/product/${product._id}`,{
+          fetch(`https://share-comfy-server-coral.vercel.app/product/${product._id}`,{
               method: "DELETE",
           })
           .then(res => res.json())
@@ -39,7 +39,7 @@ function MyProducts() {
     }
 
     const advertiseProduct = (product) =>{
-      fetch('https://share-comfy-server.vercel.app/avertise',{
+      fetch('https://share-comfy-server-coral.vercel.app/avertise',{
         method : 'POST',
         headers : {
             'content-type' : 'application/json'

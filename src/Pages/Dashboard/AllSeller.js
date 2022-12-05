@@ -5,7 +5,7 @@ function AllSeller() {
 
     const [sellers, setSellers] = useState([])
     useEffect(()=>{
-        fetch('https://share-comfy-server.vercel.app/users/seller')
+        fetch('https://share-comfy-server-coral.vercel.app/users/seller')
         .then(res => res.json())
         .then(data => setSellers(data))
        
@@ -14,7 +14,7 @@ function AllSeller() {
     const deleteUser = (seller) =>{
         const agree = window.confirm(`are you sure to delete ${seller.name}`);
         if(agree){
-            fetch(`https://share-comfy-server.vercel.app/user/${seller._id}`,{
+            fetch(`https://share-comfy-server-coral.vercel.app/user/${seller._id}`,{
                 method: "DELETE",
             })
             .then(res => res.json())

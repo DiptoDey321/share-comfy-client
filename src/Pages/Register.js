@@ -80,7 +80,7 @@ function Register() {
             role : role,
             photoURL : photoURL
         }
-        fetch('https://share-comfy-server.vercel.app/users',{
+        fetch('https://share-comfy-server-coral.vercel.app/users',{
             method: 'POST',
             headers : {
                 'content-type' : 'application/json'
@@ -91,22 +91,22 @@ function Register() {
         .then(data => {
             if(data.acknowledged){
                 toast.success(` "${name}" Registered successfully`) 
-                getUserToken(email)
+                // getUserToken(email)
             }
         })
     }
 
 
-    const getUserToken = (email) =>{
-        fetch(`https://share-comfy-server.vercel.app/jwt?${email}`)
-        .then(res => res.json())
-        .then( data => {
-            if(data.accessToken){
-                localStorage.setItem('accessToken', data.accessToken)
-                navigate('/')
-            }
-        })
-    }
+    // const getUserToken = (email) =>{
+    //     fetch(`https://share-comfy-server-coral.vercel.app/jwt?${email}`)
+    //     .then(res => res.json())
+    //     .then( data => {
+    //         if(data.accessToken){
+    //             localStorage.setItem('accessToken', data.accessToken)
+    //             navigate('/')
+    //         }
+    //     })
+    // }
 
     const termsHandler = (event) =>{
         setAccept(event.target.checked);

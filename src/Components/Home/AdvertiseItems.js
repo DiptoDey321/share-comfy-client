@@ -5,7 +5,7 @@ function AdvertiseItems() {
   
     const [advertiseProduct, setAdvertiseProduct] = useState([])
     useEffect(()=>{
-        fetch("https://share-comfy-server.vercel.app/avertise")
+        fetch("https://share-comfy-server-coral.vercel.app/avertise")
         .then(res => res.json())
         .then(data => setAdvertiseProduct(data))
     },[])

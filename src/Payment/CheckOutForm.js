@@ -19,7 +19,7 @@ function CheckOutForm({bookedItem}) {
     useEffect(() => {
       console.log(productPrice );
       if (productPrice !== undefined) {
-      fetch("https://share-comfy-server.vercel.app/create-payment-intent", {
+      fetch("https://share-comfy-server-coral.vercel.app/create-payment-intent", {
           method: "POST",
           headers: {
               "Content-Type": "application/json",
@@ -80,7 +80,7 @@ function CheckOutForm({bookedItem}) {
         }
         if(paymentIntent.status === "succeeded"){
            
-            fetch("https://share-comfy-server.vercel.app/payments",{
+            fetch("https://share-comfy-server-coral.vercel.app/payments",{
               method : "POST",
               headers:{
                 "Content-Type": "application/json"

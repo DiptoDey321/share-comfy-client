@@ -37,7 +37,7 @@ you can't give reviews or edit review or delete review without getting signup  a
 - reacts different library 
 
 ### `API link` :
-- https://share-comfy-server.vercel.app/
+- https://share-comfy-server-coral.vercel.app/
 
 ### `Live link`
 Open https://share-comfy.web.app/ to view it in your browser.

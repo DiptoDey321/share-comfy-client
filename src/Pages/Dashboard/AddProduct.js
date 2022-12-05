@@ -41,7 +41,7 @@ function AddProduct() {
                 }
                 console.log(product);
 
-                fetch('https://share-comfy-server.vercel.app/products',{
+                fetch('https://share-comfy-server-coral.vercel.app/products',{
                     method : 'POST',
                     headers : {
                         'content-type' : 'application/json'

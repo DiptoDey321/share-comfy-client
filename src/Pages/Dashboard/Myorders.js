@@ -8,7 +8,7 @@ function Myorders() {
   // console.log(user?.email);
 
   useEffect(()=>{
-      fetch(`https://share-comfy-server.vercel.app/bookingProducts/${user?.email}`,{
+      fetch(`https://share-comfy-server-coral.vercel.app/bookingProducts/${user?.email}`,{
       })
       .then(res => res.json())
       .then (data => SetBookedData(data))

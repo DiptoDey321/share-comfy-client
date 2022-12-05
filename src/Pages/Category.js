@@ -13,7 +13,7 @@ function Category() {
   const  [loading,setloading] = useState(false);
 
   useEffect(() => {
-    fetch(`https://share-comfy-server.vercel.app/products/${id}`)
+    fetch(`https://share-comfy-server-coral.vercel.app/products/${id}`)
       .then(res => res.json())
       .then(data => setproducts(data))
   }, [id])
@@ -41,7 +41,7 @@ function Category() {
       bookedDate  : new Date().toJSON().slice(0, 10),
       picture : bookedItem.picture
     }
-    fetch('https://share-comfy-server.vercel.app/bookingProducts',{
+    fetch('https://share-comfy-server-coral.vercel.app/bookingProducts',{
       method : 'POST',
       headers : {
           'content-type' : 'application/json'
