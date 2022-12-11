@@ -1,4 +1,4 @@
-# Welcome to with Royal Foodies
+# Welcome to with Share-comfy
 this project is on second-hand furniture selling website . Where you can see different kind of furniture whose are willing to sell their old one . 
 where you can also get some post over blogs in resent. All you can see other review on that particular serivices and also you can give your review too
 I have utilized firebase in here, Backend, Stripe Payment authentication and many more. where u will find out 2types of login system in here
