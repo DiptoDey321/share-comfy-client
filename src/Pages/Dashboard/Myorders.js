@@ -23,8 +23,8 @@ function Myorders() {
   console.log(bookedData);
 
   return (
-    <div>
-      <table className="table-auto w-full bg-white ">
+    <div className='overflow-x-auto'>
+      <table className="table-auto w-full bg-white">
             <thead>
                 <tr>
                     <th className='text-left p-5 bg-slate-200 text-black/70'>Product Image</th>

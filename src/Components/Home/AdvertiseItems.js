@@ -17,10 +17,11 @@ function AdvertiseItems() {
             <div className="mx-[5%] my-10">
                 <h2 className='text-3xl font-medium'>Newly Arrived products</h2>
                 <p className='text-black/50 mt-2'>See our lateast products and buy ASAP before Sold out</p>
-                <div className='mt-12 flex flex-wrap gap-10 justify-center'>
+                <div className="">
+                <div className='mt-12 flex gap-10 flex-wrap justify-center'>
                     {
                         advertiseProduct.map(product =>
-                            <div key={product._id} className="w-[310px] bg-slate-200 flex flex-col justify-center items-center rounded-[10px] shadow-md">
+                            <div key={product._id} className="w-[377px] bg-slate-200 flex flex-col justify-center items-center rounded-[10px] shadow-md">
                                 <div className='w-[250px] h-[300px] flex items-center justify-center'>
                                     <img className='w-full' src={product.picture} alt="" />
                                 </div>
@@ -37,6 +38,7 @@ function AdvertiseItems() {
                             </div>
                             )   
                     }
+                </div>
                 </div>
     </div>
         }

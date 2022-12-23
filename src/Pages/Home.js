@@ -8,9 +8,18 @@ import WhyUs from '../Components/Home/WhyUs'
 function Home() {
   return (
     <div>
-        <Heropart></Heropart>
+        <Heropart></Heropart> 
+        <div className="mx-[15%]">
+          < hr />
+        </div>
         <AdvertiseItems></AdvertiseItems>
+        <div className="mx-[15%]">
+          < hr />
+        </div>
         <Categories></Categories>
+        <div className="mx-[15%]">
+          < hr />
+        </div>
         <Testimonial></Testimonial>
         <WhyUs></WhyUs>
     </div>

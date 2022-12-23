@@ -31,7 +31,7 @@ function AllSeller() {
     }
 
   return (
-    <div className='w-full'>
+    <div className='w-full overflow-x-auto'>
         <table className="table-auto w-full bg-white ">
             <thead>
                 <tr>

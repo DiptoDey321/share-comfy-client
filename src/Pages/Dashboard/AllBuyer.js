@@ -32,7 +32,7 @@ function AllBuyer() {
 
     console.log(buyers);
   return (
-    <div>
+    <div className='overflow-x-auto'>
           <table className="table-auto w-full bg-white ">
             <thead>
                 <tr>

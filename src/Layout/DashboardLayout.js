@@ -10,11 +10,11 @@ function DashboardLayout() {
          <div className="h-fit w-full">
             <Header></Header>
             <div className='mx-[10%]'>
-                <div className="my-20 flex justify-between">
-                    <div className="w-[20%]">
+                <div className="my-20 flex flex-col sm:flex-row justify-between gap-y-10">
+                    <div className="w-full sm:w-[20%]">
                         <LeftNav></LeftNav>
                     </div>
-                    <div className="w-[75%]">
+                    <div className="w-full sm:w-[75%]">
                         <Outlet></Outlet>
                     </div>
                 </div>
